@@ -9,7 +9,6 @@ class TableManager:
     def __init__(self):
         pass
 
-
     @staticmethod
     def create(table_name: str, columns: str | None = None) -> None:
         storage_path = Path('storage') / f'{table_name}.txt'
@@ -25,7 +24,7 @@ class TableManager:
         # Реализация "-c (--columns)"
         if isinstance(columns, str):
             columns = [col.strip() for col in columns.split(',')]
-            storage_path.write_text(','.join(columns) + '\n', encoding='utf-8')
+            storage_path.write_text('id,'+','.join(columns) + '\n', encoding='utf-8')
         else:
             storage_path.write_text('id, value\n', encoding='utf-8') # По умолчанию создает id, value
 
