@@ -6,9 +6,10 @@ parser = argparse.ArgumentParser(prog='db')
 sub = parser.add_subparsers(dest='command', required=True)
 # Команда create
 create_cmd = sub.add_parser('create', help="Создать таблицу")
-create_cmd.add_argument("-n","--name", help="Создает таблицу")
-create_cmd.add_argument("-c", "--columns", help="Создает таблицу")
+create_cmd.add_argument("-n","--name", help="Назначает имя таблице")
+create_cmd.add_argument("-c", "--columns", help="Создает атрибуты таблицы")
 
-args = parser.parse_args()
-if args.command == 'create':
-    TableManager.create(args.name, args.columns)
+if __name__=="__main__":
+    args = parser.parse_args()
+    if args.command == 'create':
+        TableManager.create(args.name, args.columns)
